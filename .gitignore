@@ -482,3 +482,9 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+/API/obj
+/Infrastructure/obj
+/Infrastructure/obj
+/API/bin
+Infrastructure/bin/Debug/net8.0/Infrastructure.dll
+/Infrastructure/obj
