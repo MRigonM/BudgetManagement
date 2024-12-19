@@ -23,14 +23,15 @@ public class EmployeeController : BaseApiController
     }
 
     [HttpGet]
-    public async Task<ActionResult<IReadOnlyList<EmployeeToReturnDto>>> GetEmployees()
+    public async Task<ActionResult<IReadOnlyList<EmployeeToReturnDto>>> GetEmployees(string? department)
     {
-        var employees = await _employeeRepo.GetAllWithEmployeesAsync();
+        var employees = await _employeeRepo.GetAllWithEmployeesAsync(department);
 
         var employeesToReturn = _mapper.Map<IReadOnlyList<Employee>, IReadOnlyList<EmployeeToReturnDto>>(employees);
 
         return Ok(employeesToReturn);
     }
+
 
     [HttpGet("{id}")]
     public async Task<ActionResult<EmployeeToReturnDto>> GetEmployee(int id)

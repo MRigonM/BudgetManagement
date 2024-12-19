@@ -20,12 +20,18 @@ public class EmployeeRepository : IEmployeeRepository
             .FirstOrDefaultAsync(l => l.Id == id);
     }
 
-    public async Task<IReadOnlyList<Employee>> GetAllWithEmployeesAsync()
+    public async Task<IReadOnlyList<Employee>> GetAllWithEmployeesAsync(string? department)
+{
+    var query = _context.Employees.AsQueryable();
+
+    if (!string.IsNullOrWhiteSpace(department))
     {
-        return await _context.Employees
-            .Include(l => l.Department)
-            .ToListAsync();
+        query = query.Where(x => x.Department.Name == department);
     }
+
+    return await query.Include(x => x.Department).ToListAsync();
+}
+
 
     public void Add(Employee employee)
     {
