@@ -89,6 +89,13 @@ public class EmployeeController : BaseApiController
         return Ok(new { message = "Employee eshte perditesuar me sukses!" });
     }
 
+    [HttpGet("departments")]
+    public async Task<OkObjectResult> GetDepartmentsAsync()
+    {
+        return Ok(await _employeeRepo.GetDepartmentsAsync());
+        
+    }
+
     [HttpDelete("{id}")]
     public async Task<ActionResult> DeleteEmployee(int id)
     {

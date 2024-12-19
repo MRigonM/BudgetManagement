@@ -9,5 +9,6 @@ public interface IEmployeeRepository
     void Add(Employee employee);
     void Update(Employee employee);
     void Delete(Employee employee);
+    Task<IReadOnlyList<string>> GetDepartmentsAsync();
     Task<int> SaveAllAsync();
 }

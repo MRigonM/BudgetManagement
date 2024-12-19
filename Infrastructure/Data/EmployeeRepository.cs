@@ -43,6 +43,14 @@ public class EmployeeRepository : IEmployeeRepository
         _context.Employees.Remove(employee);
     }
 
+    public async Task<IReadOnlyList<string>> GetDepartmentsAsync()
+    {
+        return await _context.Departments.Select(x => x.Name)
+            .Distinct()
+            .ToListAsync();
+
+    }
+
     public async Task<int> SaveAllAsync()
     {
         return await _context.SaveChangesAsync();
