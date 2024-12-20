@@ -6,6 +6,9 @@ using Core.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers;
+
+[ApiController]
+[Route("api/[controller]")]
 public class EmployeeController : BaseApiController
 {
     private readonly IEmployeeRepository _employeeRepo;
@@ -23,9 +26,9 @@ public class EmployeeController : BaseApiController
     }
 
     [HttpGet]
-    public async Task<ActionResult<IReadOnlyList<EmployeeToReturnDto>>> GetEmployees(string? department)
+    public async Task<ActionResult<IReadOnlyList<EmployeeToReturnDto>>> GetEmployees(string? department, string? sort)
     {
-        var employees = await _employeeRepo.GetAllWithEmployeesAsync(department);
+        var employees = await _employeeRepo.GetAllWithEmployeesAsync(department, sort);
 
         var employeesToReturn = _mapper.Map<IReadOnlyList<Employee>, IReadOnlyList<EmployeeToReturnDto>>(employees);
 

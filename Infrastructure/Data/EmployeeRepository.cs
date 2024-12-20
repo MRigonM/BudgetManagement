@@ -20,17 +20,24 @@ public class EmployeeRepository : IEmployeeRepository
             .FirstOrDefaultAsync(l => l.Id == id);
     }
 
-    public async Task<IReadOnlyList<Employee>> GetAllWithEmployeesAsync(string? department)
-{
-    var query = _context.Employees.AsQueryable();
-
-    if (!string.IsNullOrWhiteSpace(department))
+    public async Task<IReadOnlyList<Employee>> GetAllWithEmployeesAsync(string? department, string? sort)
     {
-        query = query.Where(x => x.Department.Name == department);
-    }
+        var query = _context.Employees.AsQueryable();
 
-    return await query.Include(x => x.Department).ToListAsync();
-}
+        if (!string.IsNullOrWhiteSpace(department))
+        {
+            query = query.Where(x => x.Department.Name == department);
+        }
+
+        query = sort switch
+        {
+            "salaryAsc" => query.OrderBy(x => x.Salary),
+            "salaryDesc" => query.OrderBy(x => x.Salary),
+            _ => query.OrderBy(x => x.Name)
+        };
+
+        return await query.Include(x => x.Department).ToListAsync();
+    }
 
 
     public void Add(Employee employee)
@@ -54,7 +61,6 @@ public class EmployeeRepository : IEmployeeRepository
         return await _context.Departments.Select(x => x.Name)
             .Distinct()
             .ToListAsync();
-
     }
 
     public async Task<int> SaveAllAsync()
