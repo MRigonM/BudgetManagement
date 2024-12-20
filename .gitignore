@@ -488,3 +488,4 @@ $RECYCLE.BIN/
 /API/bin
 Infrastructure/bin/Debug/net8.0/Infrastructure.dll
 /Infrastructure/obj
+/Core/obj
