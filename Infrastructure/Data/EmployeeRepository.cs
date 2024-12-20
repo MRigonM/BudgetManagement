@@ -7,6 +7,13 @@ namespace Infrastructure.Data;
 public class EmployeeRepository : IEmployeeRepository
 {
     private readonly StoreContext _context;
+    public string? _search;
+
+    public string Search
+    {
+        get => _search ?? "";
+        set => _search = value.ToLower();
+    }
 
     public EmployeeRepository(StoreContext context)
     {
@@ -20,7 +27,7 @@ public class EmployeeRepository : IEmployeeRepository
             .FirstOrDefaultAsync(l => l.Id == id);
     }
 
-    public async Task<IReadOnlyList<Employee>> GetAllWithEmployeesAsync(string? department, string? sort)
+    public async Task<IReadOnlyList<Employee>> GetAllWithEmployeesAsync(string? department, string? sort, string? search)
     {
         var query = _context.Employees.AsQueryable();
 
@@ -28,18 +35,38 @@ public class EmployeeRepository : IEmployeeRepository
         {
             query = query.Where(x => x.Department.Name == department);
         }
+        
+        if (!string.IsNullOrWhiteSpace(search))
+        {
+            var normalizedSearch = search.ToLower();
+            var searchParts = normalizedSearch.Split(' ', StringSplitOptions.RemoveEmptyEntries);
 
+            if (searchParts.Length == 1)
+            {
+                query = query.Where(x =>
+                    x.Name.ToLower().Contains(normalizedSearch) ||
+                    x.Surname.ToLower().Contains(normalizedSearch));
+            }
+            else if (searchParts.Length > 1)
+            {
+                var firstName = searchParts[0];
+                var lastName = searchParts[1];
+                query = query.Where(x =>
+                    (x.Name.ToLower().Contains(firstName) && x.Surname.ToLower().Contains(lastName)) ||
+                    (x.Name.ToLower().Contains(lastName) && x.Surname.ToLower().Contains(firstName)));
+            }
+        }
+        
         query = sort switch
         {
             "salaryAsc" => query.OrderBy(x => x.Salary),
-            "salaryDesc" => query.OrderBy(x => x.Salary),
+            "salaryDesc" => query.OrderByDescending(x => x.Salary),
             _ => query.OrderBy(x => x.Name)
         };
 
         return await query.Include(x => x.Department).ToListAsync();
     }
-
-
+    
     public void Add(Employee employee)
     {
         _context.Employees.Add(employee);
