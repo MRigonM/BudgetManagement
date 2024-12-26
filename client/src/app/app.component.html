@@ -1,12 +1,7 @@
 <app-header></app-header>
 
 <div class="container mt-6">
-  <h1 class="text-3xl font-bold underline">Welcome to {{title}}</h1>
-  <ul>
-    @for (department of departments; track department.id) {
-      <li>{{department.name}} -  {{department.city}}</li>
-    }
-   </ul>
+  <app-employee></app-employee>
 </div>
 
 

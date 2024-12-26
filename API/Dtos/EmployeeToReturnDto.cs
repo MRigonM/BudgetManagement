@@ -7,5 +7,6 @@ public class EmployeeToReturnDto
     public String Surname { get; set; }
     public String Email { get; set; }
     public decimal Salary { get; set; }
+    public String PictureUrl { get; set; }
     public String DepartmentName { get; set; }
 }

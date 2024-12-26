@@ -1,0 +1,7 @@
+<div class="grid grid-cols-4 gap-4">
+  @for (employee of employees; track employee.id) {
+    <mat-card appearance="raised">
+      <img src="{{employee.pictureUrl}}" alt="image of {{employee.name}}">
+    </mat-card>
+  }
+</div>

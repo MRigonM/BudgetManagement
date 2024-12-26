@@ -10,8 +10,10 @@ public class MappingProfiles : Profile
     {
         CreateMap<EmployeeCreateDto, Employee>();
         CreateMap<EmployeeUpdateDto, Employee>();
-        CreateMap<Employee, EmployeeToReturnDto>().ForMember(dest => dest.DepartmentName,
-            opt => opt.MapFrom(src => src.Department.Name));
+        CreateMap<Employee, EmployeeToReturnDto>()
+            .ForMember(dest => dest.DepartmentName,
+                opt => opt.MapFrom(src => src.Department.Name))
+            .ForMember(dest => dest.PictureUrl, o => o.MapFrom<EmployeeUrlResolver>());
 
         CreateMap<DepartmentCreateDto, Department>();
         CreateMap<DepartmentUpdateDto, Department>();
