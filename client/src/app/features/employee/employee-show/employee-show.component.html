@@ -1,0 +1,16 @@
+@if (employee){
+  <mat-card appearance="raised">
+    <img src="{{employee.pictureUrl}}" alt="image of {{employee.name}}">
+    <mat-card-content class="mt-2">
+      <h2 class="text-sm font-semibold uppercase">{{employee.name}} {{employee.surname}}</h2>
+      <p class="font-light">Department : {{employee.departmentName}}</p>
+      <p class="font-light">Role : {{employee.role}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-stroked-button class="w-full">
+        <mat-icon>open_in_new</mat-icon>
+        View
+      </button>
+    </mat-card-actions>
+  </mat-card>
+}
