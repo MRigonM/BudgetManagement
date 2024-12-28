@@ -1,20 +1,19 @@
 import {Component, inject, OnInit} from '@angular/core';
-import {DepartmentService} from '../../core/services/department.service';
-import {Department} from '../../shared/models/Department';
 import {EmployeeService} from '../../core/services/employee.service';
 import {Employee} from '../../shared/models/Employee';
 import {MatCard} from '@angular/material/card';
+import {EmployeeShowComponent} from './employee-show/employee-show.component';
 
 @Component({
   selector: 'app-employee',
   imports: [
-    MatCard
+    MatCard,
+    EmployeeShowComponent
   ],
   templateUrl: './employee.component.html',
   styleUrl: './employee.component.scss'
 })
 export class EmployeeComponent implements OnInit {
-  title = 'Employee';
   private employeeService = inject(EmployeeService);
   employees: Employee[] = [];
 

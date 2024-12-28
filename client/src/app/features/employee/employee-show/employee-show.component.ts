@@ -3,6 +3,7 @@ import {Employee} from '../../../shared/models/Employee';
 import {MatCard, MatCardActions, MatCardContent} from '@angular/material/card';
 import {MatButton} from '@angular/material/button';
 import {MatIcon} from '@angular/material/icon';
+import {CurrencyPipe} from '@angular/common';
 
 @Component({
   selector: 'app-employee-show',
@@ -11,7 +12,8 @@ import {MatIcon} from '@angular/material/icon';
     MatCardContent,
     MatCardActions,
     MatButton,
-    MatIcon
+    MatIcon,
+    CurrencyPipe
   ],
   templateUrl: './employee-show.component.html',
   styleUrl: './employee-show.component.scss'
