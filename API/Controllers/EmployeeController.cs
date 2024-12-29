@@ -26,7 +26,7 @@ public class EmployeeController : BaseApiController
     }
 
     [HttpGet]
-    public async Task<ActionResult<IReadOnlyList<EmployeeToReturnDto>>> GetEmployees(string? department, string? sort, string? search)
+    public async Task<ActionResult<IReadOnlyList<EmployeeToReturnDto>>> GetEmployees([FromQuery] List<string>? department, string? sort, string? search)
     {
         var employees = await _employeeRepo.GetAllWithEmployeesAsync(department, sort, search);
 
@@ -34,6 +34,7 @@ public class EmployeeController : BaseApiController
 
         return Ok(employeesToReturn);
     }
+
 
 
     [HttpGet("{id}")]

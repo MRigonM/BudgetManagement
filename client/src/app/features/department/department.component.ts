@@ -14,11 +14,11 @@ import {MatCard} from '@angular/material/card';
 export class DepartmentComponent implements OnInit {
   title = 'Department';
   private departmentService = inject(DepartmentService);
-  departments: Department[] = [];
+  depo: Department[] = [];
 
   ngOnInit(): void {
     this.departmentService.getDepartments().subscribe({
-      next: response => this.departments = response,
+      next: response => this.depo = response,
       error: error => console.log(error)
     })
   }

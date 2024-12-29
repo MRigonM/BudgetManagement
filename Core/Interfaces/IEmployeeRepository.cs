@@ -5,7 +5,7 @@ namespace Core.Interfaces;
 public interface IEmployeeRepository
 {
     Task<Employee?> GetByIdWithEmployeeAsync(int id);
-    Task<IReadOnlyList<Employee>> GetAllWithEmployeesAsync(string? department, string? sort, string? search);
+    Task<IReadOnlyList<Employee>> GetAllWithEmployeesAsync(List<string>? department, string? sort, string? search);
     void Add(Employee employee);
     void Update(Employee employee);
     void Delete(Employee employee);
