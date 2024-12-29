@@ -1,0 +1,17 @@
+button.update-btn {
+  background-color: #38a169 !important; /* Green */
+  color: #fff !important;
+
+  &:hover {
+    background-color: #2f855a !important; /* Darker green */
+  }
+}
+
+button.delete-btn {
+  background-color: #e53e3e !important; /* Red */
+  color: #fff !important;
+
+  &:hover {
+    background-color: #c53030 !important; /* Darker red */
+  }
+}

@@ -4,6 +4,7 @@ import {MatCard, MatCardActions, MatCardContent} from '@angular/material/card';
 import {MatButton} from '@angular/material/button';
 import {MatIcon} from '@angular/material/icon';
 import {CurrencyPipe} from '@angular/common';
+import {RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-employee-show',
@@ -13,7 +14,8 @@ import {CurrencyPipe} from '@angular/common';
     MatCardActions,
     MatButton,
     MatIcon,
-    CurrencyPipe
+    CurrencyPipe,
+    RouterLink
   ],
   templateUrl: './employee-show.component.html',
   styleUrl: './employee-show.component.scss'

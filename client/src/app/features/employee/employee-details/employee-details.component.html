@@ -1,0 +1,55 @@
+@if (employee) {
+  <section class="flex items-center justify-center">
+    <div class="w-full max-w-6xl bg-white rounded-lg shadow-lg p-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <!-- Employee Image -->
+        <div class="flex justify-center items-center">
+          <img
+            class="w-64 h-64 object-cover rounded-full shadow-md"
+            src="{{employee.pictureUrl}}"
+            alt="{{employee.name}}'s image"
+          />
+        </div>
+
+        <!-- Employee Details -->
+        <div>
+          <h1 class="text-4xl font-bold text-gray-900 mb-6">
+            {{ employee.name }} {{ employee.surname }}
+          </h1>
+          <ul class="space-y-6 text-lg text-gray-700">
+            <li>
+              <span class="font-medium text-gray-900">Department:</span>
+              {{ employee.departmentName }}
+            </li>
+            <li>
+              <span class="font-medium text-gray-900">Role:</span>
+              {{ employee.role }}
+            </li>
+            <li>
+              <span class="font-medium text-gray-900">Salary:</span>
+              {{ employee.salary | currency }}
+            </li>
+            <li>
+              <span class="font-medium text-gray-900">Contact info:</span>
+              <a href="mailto:{{employee.email}}" class="text-blue-500 hover:underline">
+                {{ employee.email }}
+              </a>
+            </li>
+          </ul>
+
+          <!-- Action Buttons -->
+          <div class="flex gap-6 mt-8">
+            <button class="update-btn" mat-flat-button>
+              <mat-icon>update</mat-icon>
+              Update
+            </button>
+            <button class="delete-btn" mat-flat-button>
+              <mat-icon>delete</mat-icon>
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+}

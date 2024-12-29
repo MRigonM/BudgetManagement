@@ -30,6 +30,10 @@ export class EmployeeService {
     return this.http.get<Employee[]>(this.baseUrl + 'employee', {params});
   }
 
+  getEmployee(id: number) {
+    return this.http.get<Employee>(this.baseUrl + 'employee/' + id);
+  }
+
   getDepartmentsFromEmployees() {
     if (this.departments.length > 0) return;
     return this.http.get<string[]>(this.baseUrl + 'employee/departments').subscribe({
