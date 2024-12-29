@@ -1,9 +1,33 @@
 <div class="flex flex-col gap-3">
-  <div class="flex justify-end">
-    <button mat-stroked-button (click)="openFiltersDialog()">
-      <mat-icon>filter_list</mat-icon>
-      Filters
-    </button>
+  <div class="flex items-center justify-between">
+    <div></div>
+    <div class="flex items-center gap-4">
+      <form
+        #searchForm="ngForm"
+        (ngSubmit)="onSearchChange()"
+        class="flex items-center gap-2 w-full max-w-md">
+        <input
+          type="search"
+          class="block w-full p-4 text-sm text-gray-900 border border-gray-300 rounded-lg"
+          placeholder="Search"
+          name="search"
+          [(ngModel)]="employeeParams.search"
+        />
+        <button
+          mat-icon-button
+          type="submit"
+          class="flex items-center justify-center p-2">
+          <mat-icon>search</mat-icon>
+        </button>
+      </form>
+      <button
+        class="match-input-height"
+        mat-stroked-button
+        (click)="openFiltersDialog()">
+        <mat-icon>filter_list</mat-icon>
+        Filters
+      </button>
+    </div>
   </div>
   <div class="grid grid-cols-5 gap-4">
     @for (employee of employees; track employee.id) {
@@ -11,4 +35,3 @@
     }
   </div>
 </div>
-
