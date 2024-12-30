@@ -1,56 +1,51 @@
 <div class="min-h-screen">
-  <!-- Header Section -->
   <div class="bg-gray-800 text-white px-6 py-4 text-lg font-bold">
     Departments
   </div>
-  <!-- Content Section -->
   <div>
     <table class="table-auto w-full border-collapse border border-gray-300">
-      <!-- Check if departments exist -->
       @if (departments && departments.length > 0) {
-      <thead>
+        <thead>
         <tr class="bg-gray-100">
           <th class="border border-gray-300 px-4 py-2 text-left">Id</th>
           <th class="border border-gray-300 px-4 py-2 text-left">Name</th>
           <th class="border border-gray-300 px-4 py-2 text-left">City</th>
           <th class="border border-gray-300 px-4 py-2 text-left" colspan="2">Actions</th>
         </tr>
-      </thead>
-      <tbody>
-        @for (department of departments; track department.id) {
-        <tr>
-          <td class="border border-gray-300 px-4 py-2">{{department.id}}</td>
-          <td class="border border-gray-300 px-4 py-2">{{department.name}}</td>
-          <td class="border border-gray-300 px-4 py-2">{{department.city}}</td>
-          <td class="border border-gray-300 px-4 py-2">
-            <a
-              class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
-              [routerLink]="['/department', 'update', department.id]"
-            >
-              Update
-            </a>
-          </td>
-          <td class="border border-gray-300 px-4 py-2">
-            <button
-              class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
-              (click)="deleteDepartment(department.id)"
-            >
-              Delete
-            </button>
-          </td>
-        </tr>
-        }
-      </tbody>
+        </thead>
+        <tbody>
+          @for (department of departments; track department.id) {
+            <tr>
+              <td class="border border-gray-300 px-4 py-2">{{ department.id }}</td>
+              <td class="border border-gray-300 px-4 py-2">{{ department.name }}</td>
+              <td class="border border-gray-300 px-4 py-2">{{ department.city }}</td>
+              <td class="border border-gray-300 px-4 py-2">
+                <a
+                  class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
+                  [routerLink]="['/department', 'update', department.id]"
+                >
+                  Update
+                </a>
+              </td>
+              <td class="border border-gray-300 px-4 py-2">
+                <button
+                  class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+                  (click)="deleteDepartment(department.id)"
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+          }
+        </tbody>
       }
-      <!-- No departments message -->
       <p class="text-center text-gray-500 py-4">
         @if (!departments || departments.length <= 0) {
-        No departments available.
+          No departments available.
         }
       </p>
     </table>
   </div>
-  <!-- Footer Section -->
   <div class="p-4 flex justify-end bg-gray-100">
     <a
       class="bg-blue-500 text-white px-5 py-2 rounded hover:bg-blue-600"

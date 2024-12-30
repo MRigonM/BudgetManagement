@@ -1,0 +1,58 @@
+<div class="container mx-auto my-10">
+  <h1 class="mb-6 text-2xl font-bold text-center">Create a Employee</h1>
+  <div class="flex justify-center">
+    <div class="w-full max-w-md">
+      <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+        <app-text-input
+          [formControl]="employeeForm.controls['name']"
+          [label]="'Name'"
+        ></app-text-input>
+
+        <app-text-input
+          [formControl]="employeeForm.controls['surname']"
+          [label]="'Surname'"
+        ></app-text-input>
+
+        <app-text-input
+          [formControl]="employeeForm.controls['role']"
+          [label]="'Role'"
+        ></app-text-input>
+
+        <app-text-input
+          [formControl]="employeeForm.controls['email']"
+          [label]="'Email'"
+        ></app-text-input>
+
+        <app-text-input
+          [formControl]="employeeForm.controls['salary']"
+          [label]="'Salary'"
+        ></app-text-input>
+
+        <app-text-input
+          [formControl]="employeeForm.controls['pictureUrl']"
+          [label]="'PictureUrl'"
+        ></app-text-input>
+
+        <select
+          class="block w-full px-4 py-2 mt-3 text-sm border border-gray-300 rounded-lg"
+          formControlName="departmentName">
+          @for (department of departments; track department.id) {
+          <option [value]="department.id">
+            {{department.name}}
+          </option>
+          }
+        </select>
+
+        <div class="mt-6">
+          <button
+            [disabled]="employeeForm.invalid"
+            class="w-full px-4 py-2 text-lg font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700"
+            type="submit"
+          >
+            Create
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -14,6 +14,22 @@ export class EmployeeService {
   private http = inject(HttpClient);
   departments: string[] = [];
 
+  getEmployee(id: any) {
+    return this.http.get<Employee>(this.baseUrl + 'employee/' + id);
+  }
+
+  addEmployee(values : any) {
+    return this.http.post<Employee>(this.baseUrl + 'employee', values);
+  }
+
+  updateEmployee(employee: any) {
+    return this.http.put<Employee>(`${this.baseUrl}employee/${employee.id}`, employee);
+  }
+
+  deleteEmployee(id: any) {
+    return this.http.delete<void>(this.baseUrl + 'employee/' + id);
+  }
+
   getEmployees(employeeParams: EmployeeParams) {
     let params = new HttpParams();
 
@@ -22,16 +38,11 @@ export class EmployeeService {
         params = params.append('department', department);
       });
     }
-
     if (employeeParams.search.length > 0) {
       params = params.append('search', employeeParams.search);
     }
 
     return this.http.get<Employee[]>(this.baseUrl + 'employee', {params});
-  }
-
-  getEmployee(id: number) {
-    return this.http.get<Employee>(this.baseUrl + 'employee/' + id);
   }
 
   getDepartmentsFromEmployees() {

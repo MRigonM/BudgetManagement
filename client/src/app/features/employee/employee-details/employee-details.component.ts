@@ -1,32 +1,31 @@
 import {Component, inject, OnInit} from '@angular/core';
 import {EmployeeService} from '../../../core/services/employee.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router, RouterLink} from '@angular/router';
 import {Employee} from '../../../shared/models/Employee';
 import {CurrencyPipe} from '@angular/common';
 import {MatIcon} from '@angular/material/icon';
-import {MatFormField, MatLabel} from '@angular/material/form-field';
-import {MatDivider} from '@angular/material/divider';
 import {MatButton} from '@angular/material/button';
-import {MatInput} from '@angular/material/input';
 
 @Component({
   selector: 'app-employee-details',
   imports: [
-     CurrencyPipe,
+    CurrencyPipe,
     MatButton,
     MatIcon,
-    MatFormField,
-    MatInput,
-    MatLabel,
-    MatDivider
+    RouterLink
   ],
   templateUrl: './employee-details.component.html',
   styleUrl: './employee-details.component.scss'
 })
 export class EmployeeDetailsComponent implements OnInit {
-  private employeeService = inject(EmployeeService);
-  private activatedRoute = inject(ActivatedRoute);
+  returnUrl: string;
   employee?: Employee
+
+  constructor(private employeeService: EmployeeService,
+              private activatedRoute: ActivatedRoute,
+              private router: Router) {
+    this.returnUrl = this.activatedRoute.snapshot.queryParams['returnUrl'] || '/employee';
+  }
 
   ngOnInit() {
     this.loadEmployee();
@@ -38,6 +37,14 @@ export class EmployeeDetailsComponent implements OnInit {
     this.employeeService.getEmployee(+id).subscribe({
       next : employee => this.employee = employee,
       error : error => console.log(error)
+    })
+  }
+
+  deleteEmployee(id: any) {
+    this.employeeService.deleteEmployee(id).subscribe({
+      next: (response) => {
+        this.router.navigateByUrl(this.returnUrl);
+      }
     })
   }
 }

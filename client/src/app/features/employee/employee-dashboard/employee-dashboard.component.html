@@ -1,0 +1,92 @@
+<div class="flex justify-end items-center gap-4 mb-2">
+  <form
+    #searchForm="ngForm"
+    (ngSubmit)="onSearchChange()"
+    class="flex items-center gap-2 w-full max-w-md">
+    <input
+      type="search"
+      class="block w-full p-4 text-sm text-gray-900 border border-gray-300 rounded-lg"
+      placeholder="Search"
+      name="search"
+      [(ngModel)]="employeeParams.search"
+    />
+    <button
+      mat-icon-button
+      type="submit"
+      class="flex items-center justify-center p-2">
+      <mat-icon>search</mat-icon>
+    </button>
+  </form>
+  <button
+    class="match-input-height"
+    mat-stroked-button
+    (click)="openFiltersDialog()">
+    <mat-icon>filter_list</mat-icon>
+    Filters
+  </button>
+</div>
+<div class="min-h-screen">
+  <div class="bg-gray-800 text-white px-6 py-4 text-lg font-bold">
+    Employees
+  </div>
+  <div>
+    <table class="table-auto w-full border-collapse border border-gray-300">
+      @if (employees && employees.length > 0) {
+        <thead>
+          <tr class="bg-gray-100">
+            <th class="border border-gray-300 px-4 py-2 text-left">Id</th>
+            <th class="border border-gray-300 px-4 py-2 text-left">Name</th>
+            <th class="border border-gray-300 px-4 py-2 text-left">Surname</th>
+            <th class="border border-gray-300 px-4 py-2 text-left">Role</th>
+            <th class="border border-gray-300 px-4 py-2 text-left">Email</th>
+            <th class="border border-gray-300 px-4 py-2 text-left">Salary</th>
+            <th class="border border-gray-300 px-4 py-2 text-left">Department</th>
+            <th class="border border-gray-300 px-4 py-2 text-left" colspan="2">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (employee of employees; track employee.id) {
+            <tr>
+              <td class="border border-gray-300 px-4 py-2">{{ employee.id }}</td>
+              <td class="border border-gray-300 px-4 py-2">{{ employee.name }}</td>
+              <td class="border border-gray-300 px-4 py-2">{{ employee.surname }}</td>
+              <td class="border border-gray-300 px-4 py-2">{{ employee.role }}</td>
+              <td class="border border-gray-300 px-4 py-2">{{ employee.email }}</td>
+              <td class="border border-gray-300 px-4 py-2">{{ employee.salary | currency }}</td>
+              <td class="border border-gray-300 px-4 py-2">{{ employee.departmentName }}</td>
+              <td class="border border-gray-300 px-4 py-2">
+                <a
+                  class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
+                  [routerLink]="['/employees', 'update', employee.id]"
+                >
+                  Update
+                </a>
+              </td>
+              <td class="border border-gray-300 px-4 py-2">
+                <button
+                  class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+                  (click)="deleteEmployee(employee.id)"
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+          }
+        </tbody>
+      }
+      <p class="text-center text-gray-500 py-4">
+        @if (!employees || employees.length <= 0) {
+          No employees available.
+        }
+      </p>
+    </table>
+  </div>
+  <div class="p-4 flex justify-end bg-gray-100">
+    <a
+      class="bg-blue-500 text-white px-5 py-2 rounded hover:bg-blue-600"
+      routerLink="/employees/add"
+    >
+      Create Employee
+    </a>
+  </div>
+</div>
