@@ -14,7 +14,6 @@ import {RouterLink} from '@angular/router';
     MatCardActions,
     MatButton,
     MatIcon,
-    CurrencyPipe,
     RouterLink
   ],
   templateUrl: './employee-show.component.html',
