@@ -1,4 +1,6 @@
 using API.Extensions;
+using Core.Entities;
+using Infrastructure.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +16,9 @@ builder.Services.AddCors(options =>
             .AllowAnyHeader()
             .AllowAnyMethod());
 });
+builder.Services.AddAuthorization();
+builder.Services.AddIdentityApiEndpoints<AppUser>()
+    .AddEntityFrameworkStores<StoreContext>();
 
 var app = builder.Build();
 
@@ -21,5 +26,6 @@ app.UseCors("AllowFrontend");
 // Configure the HTTP request pipeline.
 
 app.MapControllers();
+app.MapGroup("api").MapIdentityApi<AppUser>();
 
 app.Run();
