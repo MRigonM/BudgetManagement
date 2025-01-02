@@ -1,6 +1,6 @@
 import {Component, inject, OnInit} from '@angular/core';
 import {DepartmentService} from '../../core/services/department.service';
-import {Department} from '../../shared/models/Department';
+import {Department} from '../../shared/models/department';
 import {MatCard} from '@angular/material/card';
 import {ActivatedRoute, ActivatedRouteSnapshot, Router, RouterLink} from '@angular/router';
 

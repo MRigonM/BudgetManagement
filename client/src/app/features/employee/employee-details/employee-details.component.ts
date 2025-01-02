@@ -1,7 +1,7 @@
 import {Component, inject, OnInit} from '@angular/core';
 import {EmployeeService} from '../../../core/services/employee.service';
 import {ActivatedRoute, Router, RouterLink} from '@angular/router';
-import {Employee} from '../../../shared/models/Employee';
+import {Employee} from '../../../shared/models/employee';
 import {CurrencyPipe} from '@angular/common';
 import {MatIcon} from '@angular/material/icon';
 import {MatButton} from '@angular/material/button';

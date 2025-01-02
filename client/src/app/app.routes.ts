@@ -9,6 +9,8 @@ import {AddEmployeeComponent} from './features/employee/employee-dashboard/add-e
 import {
   UpdateEmployeeComponent
 } from './features/employee/employee-dashboard/update-employee/update-employee.component';
+import {LoginComponent} from './features/account/login/login.component';
+import {RegisterComponent} from './features/account/register/register.component';
 
 export const routes: Routes = [
   {path: 'employee', component: EmployeeComponent},
@@ -21,6 +23,9 @@ export const routes: Routes = [
   {path: 'employees', component: EmployeeDashboardComponent},
   {path: 'employees/add', component: AddEmployeeComponent},
   {path: 'employees/update/:id', component: UpdateEmployeeComponent},
+
+  {path: 'account/login', component: LoginComponent},
+  {path: 'account/register', component: RegisterComponent},
   {path: '**', redirectTo: 'employee',pathMatch: 'full'},
 
 ];

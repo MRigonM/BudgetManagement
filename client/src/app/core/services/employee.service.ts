@@ -1,9 +1,9 @@
 import {inject, Injectable} from '@angular/core';
 import {environment} from '../../environments/environment';
 import {HttpClient, HttpParams} from '@angular/common/http';
-import {Department} from '../../shared/models/Department';
-import {Employee} from '../../shared/models/Employee';
-import {EmployeeParams} from '../../shared/models/EmployeeParams';
+import {Department} from '../../shared/models/department';
+import {Employee} from '../../shared/models/employee';
+import {EmployeeParams} from '../../shared/models/employeeParams';
 
 @Injectable({
   providedIn: 'root'

@@ -9,13 +9,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddApplicationServices(builder.Configuration);
 
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowFrontend", policy =>
-        policy.AllowAnyOrigin()
-            .AllowAnyHeader()
-            .AllowAnyMethod());
-});
 builder.Services.AddAuthorization();
 builder.Services.AddIdentityApiEndpoints<AppUser>()
     .AddEntityFrameworkStores<StoreContext>();
@@ -23,6 +16,8 @@ builder.Services.AddIdentityApiEndpoints<AppUser>()
 var app = builder.Build();
 
 app.UseCors("AllowFrontend");
+app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowCredentials()
+    .WithOrigins("http://localhost:4200","https://localhost:4200"));
 // Configure the HTTP request pipeline.
 
 app.MapControllers();

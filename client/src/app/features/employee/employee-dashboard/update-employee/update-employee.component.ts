@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import {Department} from '../../../../shared/models/Department';
+import {Department} from '../../../../shared/models/department';
 import {EmployeeService} from '../../../../core/services/employee.service';
 import {DepartmentService} from '../../../../core/services/department.service';
 

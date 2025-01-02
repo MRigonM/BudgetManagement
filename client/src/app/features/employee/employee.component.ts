@@ -1,13 +1,13 @@
 import {Component, inject} from '@angular/core';
 import {EmployeeService} from '../../core/services/employee.service';
-import {Employee} from '../../shared/models/Employee';
+import {Employee} from '../../shared/models/employee';
 import {EmployeeShowComponent} from './employee-show/employee-show.component';
 import {MatDialog} from '@angular/material/dialog';
 import {FiltersDialogComponent} from './filters-dialog/filters-dialog.component';
 import {MatButton, MatIconButton} from '@angular/material/button';
 import {MatIcon} from '@angular/material/icon';
 import {FormsModule} from '@angular/forms';
-import {EmployeeParams} from '../../shared/models/EmployeeParams';
+import {EmployeeParams} from '../../shared/models/employeeParams';
 
 @Component({
   selector: 'app-employee',

@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {Employee} from '../../../shared/models/Employee';
+import {Employee} from '../../../shared/models/employee';
 import {MatCard, MatCardActions, MatCardContent} from '@angular/material/card';
 import {MatButton} from '@angular/material/button';
 import {MatIcon} from '@angular/material/icon';

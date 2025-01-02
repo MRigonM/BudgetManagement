@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {EmployeeService} from '../../../../core/services/employee.service';
-import {Department} from '../../../../shared/models/Department';
+import {Department} from '../../../../shared/models/department';
 import {DepartmentService} from '../../../../core/services/department.service';
 import {TextInputComponent} from '../../../../shared/components/text-input/text-input.component';
 

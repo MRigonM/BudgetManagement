@@ -1,8 +1,8 @@
 import {Component, inject, OnInit} from '@angular/core';
 import {ActivatedRoute, Router, RouterLink} from "@angular/router";
 import {EmployeeService} from '../../../core/services/employee.service';
-import {Employee} from '../../../shared/models/Employee';
-import {EmployeeParams} from '../../../shared/models/EmployeeParams';
+import {Employee} from '../../../shared/models/employee';
+import {EmployeeParams} from '../../../shared/models/employeeParams';
 import {FiltersDialogComponent} from '../filters-dialog/filters-dialog.component';
 import {MatDialog} from '@angular/material/dialog';
 import {CurrencyPipe} from '@angular/common';

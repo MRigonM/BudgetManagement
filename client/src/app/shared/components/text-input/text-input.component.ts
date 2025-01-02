@@ -1,13 +1,10 @@
 import {Component, Input, Self} from '@angular/core';
 import {ControlValueAccessor, FormControl, NgControl, ReactiveFormsModule} from '@angular/forms';
-import {NgClass, NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-text-input',
   imports: [
     ReactiveFormsModule,
-    NgClass,
-    NgIf
   ],
   templateUrl: './text-input.component.html',
   styleUrl: './text-input.component.scss'
