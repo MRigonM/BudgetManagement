@@ -1,1 +1,65 @@
-<p>register works!</p>
+<mat-card class="max-w-lg mx-auto mt-32 p-8 bg-white">
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="text-center mb-6">
+      <h1 class="text-3xl font-semibold text-primary">Register</h1>
+    </div>
+    <mat-form-field appearance="fill" class="w-full mb-4">
+      <mat-label>First Name</mat-label>
+      <input matInput formControlName="firstName" type="text" placeholder="First Name" />
+      @if (registerForm.get('firstName')?.errors?.['required']) {
+        <mat-error>First name is required.</mat-error>
+      }
+      @if (registerForm.get('firstName')?.errors?.['minlength']) {
+        <mat-error>First Name must be at least {{nameMinLength}} characters long.</mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="w-full mb-4">
+      <mat-label>Last Name</mat-label>
+      <input matInput formControlName="lastName" type="text" placeholder="Last Name" />
+      @if (registerForm.get('lastName')?.errors?.['required']) {
+        <mat-error>Last name is required.</mat-error>
+      }
+      @if (registerForm.get('lastName')?.errors?.['minlength']) {
+        <mat-error>Last Name must be at least {{nameMinLength}} characters long.</mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="w-full mb-4">
+      <mat-label>Email Address</mat-label>
+      <input matInput formControlName="email" type="email" placeholder="name@example.com" />
+      @if (registerForm.get('email')?.errors?.['required']) {
+        <mat-error>Email is required.</mat-error>
+      }
+      @if (registerForm.get('email')?.errors?.['email']) {
+        <mat-error>Enter a valid email.</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="w-full mb-4">
+      <mat-label>Password</mat-label>
+      <input matInput formControlName="password" type="password" placeholder="Password" />
+      @if (registerForm.get('password')?.errors?.['required']) {
+        <mat-error>Password is required.</mat-error>
+      }
+      @if (registerForm.get('password')?.errors?.['minlength']) {
+        <mat-error>Password must be at least {{passwordMinLength}} characters long.</mat-error>
+      }
+    </mat-form-field>
+    @if (validationErrors?.length) {
+      <div class="text-red-600 text-sm mb-4">
+        <ul>
+          @for (error of validationErrors; track $index) {
+            <li>{{ error }}</li>
+          }
+        </ul>
+      </div>
+    }
+    <button
+      mat-flat-button
+      type="submit"
+      class="w-full py-2 bg-primary text-white"
+      [disabled]="registerForm.invalid"
+    >
+      Register
+    </button>
+  </form>
+</mat-card>
