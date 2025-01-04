@@ -41,20 +41,27 @@ export class RegisterComponent {
   });
 
   onSubmit() {
-    this.showFillAllFieldsError = false;
-    if (this.registerForm.valid) {
-      this.accountService.register(this.registerForm.value).subscribe({
-        next: () => {
-          this.snack.success('Registration successful - you can now login');
-          this.router.navigateByUrl('/account/login');
-        },
-        error: (errorResponse) => {
-          this.validationErrors = errorResponse?.error?.errors;
-        },
-      });
-    } else {
-      this.showFillAllFieldsError = true;
-      this.registerForm.markAllAsTouched();
-    }
+  this.showFillAllFieldsError = false;
+  if (this.registerForm.valid) {
+    this.accountService.register(this.registerForm.value).subscribe({
+      next: () => {
+        this.snack.success('Registration successful - you can now login');
+        this.router.navigateByUrl('/account/login');
+      },
+      error: (errorResponse) => {
+        const errorMessages = errorResponse?.error?.errors || [];
+
+        if (errorMessages.includes("Email is already in use")) {
+          this.validationErrors = ["The email address is already in use. Please use a different email."];
+        } else {
+          this.validationErrors = errorMessages;
+        }
+      },
+    });
+  } else {
+    this.showFillAllFieldsError = true;
+    this.registerForm.markAllAsTouched();
   }
+}
+
 }

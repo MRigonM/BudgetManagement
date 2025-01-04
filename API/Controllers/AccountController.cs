@@ -20,6 +20,13 @@ public class AccountController(SignInManager<AppUser> signInManager) : BaseApiCo
             Email = registerDto.Email,
             UserName = registerDto.Email
         };
+
+        var existingUser = await signInManager.UserManager.FindByEmailAsync(registerDto.Email);
+        if (existingUser != null)
+        {
+            return BadRequest(new { errors = new[] { "Email is already in use" } });
+        }
+
         var result = await signInManager.UserManager.CreateAsync(user, registerDto.Password);
         if (!result.Succeeded)
         {
@@ -31,6 +38,7 @@ public class AccountController(SignInManager<AppUser> signInManager) : BaseApiCo
         }
         return Ok();
     }
+
     [Authorize]
     [HttpPost("logout")]
     public async Task<ActionResult> Logout()
