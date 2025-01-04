@@ -32,12 +32,20 @@ export class RegisterComponent {
   showFillAllFieldsError = false;
   passwordMinLength = 8;
   nameMinLength = 3;
+  passwordPattern = /^(?=.*[A-Z])(?=.*[\W_])(?=.*\d).+$/;
 
   registerForm = this.fb.group({
     firstName: ['', [Validators.required, Validators.minLength(this.nameMinLength)]],
     lastName: ['', [Validators.required, Validators.minLength(this.nameMinLength)]],
     email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required, Validators.minLength(this.passwordMinLength)]],
+    password: [
+      '',
+      [
+        Validators.required,
+        Validators.minLength(this.passwordMinLength),
+        Validators.pattern(this.passwordPattern)
+      ]
+    ],
   });
 
   onSubmit() {

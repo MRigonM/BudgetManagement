@@ -1,52 +1,37 @@
-<div class="container mx-auto my-10">
-  <h1 class="mb-6 text-2xl font-bold text-center">Create a Employee</h1>
-  <div class="flex justify-center">
-    <div class="w-full max-w-md">
+<div class="container my-5">
+  <h1 class="mb-3">Create an Employee</h1>
+  <div class="row">
+    <div class="col-4">
       <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
         <app-text-input
-          [formControl]="employeeForm.controls['name']"
-          [label]="'Name'"
-        ></app-text-input>
-
+          [formControl]="employeeForm.controls['name']" [label]="'First Name'"></app-text-input>
         <app-text-input
-          [formControl]="employeeForm.controls['surname']"
-          [label]="'Surname'"
-        ></app-text-input>
-
+          [formControl]="employeeForm.controls['surname']" [label]="'Last Name'"></app-text-input>
         <app-text-input
-          [formControl]="employeeForm.controls['role']"
-          [label]="'Role'"
-        ></app-text-input>
-
+          [formControl]="employeeForm.controls['role']" [label]="'Role'"></app-text-input>
         <app-text-input
-          [formControl]="employeeForm.controls['email']"
-          [label]="'Email'"
-        ></app-text-input>
-
+          [formControl]="employeeForm.controls['email']" [label]="'Email'"></app-text-input>
         <app-text-input
           [formControl]="employeeForm.controls['salary']"
-          [label]="'Salary'"
-        ></app-text-input>
-
+          [label]="'Salary'" type="number"></app-text-input>
         <app-text-input
-          [formControl]="employeeForm.controls['pictureUrl']"
-          [label]="'PictureUrl'"
-        ></app-text-input>
+          [formControl]="employeeForm.controls['pictureUrl']" [label]="'Picture URL'"></app-text-input>
 
         <select
-          class="block w-full px-4 py-2 mt-3 text-sm border border-gray-300 rounded-lg"
+          class="form-select"
           formControlName="departmentName">
-          @for (department of departments; track department.id) {
-          <option [value]="department.id">
-            {{department.name}}
-          </option>
+          <option value="" disabled>Select a department</option>
+          @for (dept of departments; track dept.id) {
+            <option [value]="dept.id">
+              {{ dept.name }}
+            </option>
           }
         </select>
 
-        <div class="mt-6">
+        <div class="d-grid">
           <button
             [disabled]="employeeForm.invalid"
-            class="w-full px-4 py-2 text-lg font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700"
+            class="btn btn-lg btn-primary mt-3"
             type="submit"
           >
             Create
