@@ -33,7 +33,7 @@
         <mat-error>Enter a valid email.</mat-error>
       }
     </mat-form-field>
-    <mat-form-field appearance="fill" class="w-full mb-6">
+    <mat-form-field appearance="fill" class="w-full mb-4">
       <mat-label>Password</mat-label>
       <input matInput formControlName="password" type="password" placeholder="Password"/>
       @if (registerForm.get('password')?.errors?.['required']) {
@@ -49,6 +49,13 @@
         </mat-error>
       }
     </mat-form-field>
+    @if (validationErrors && validationErrors.length > 0) {
+      <div class="mb-2">
+        @for (error of validationErrors; track $index) {
+          <mat-error>{{ error }}</mat-error>
+        }
+      </div>
+    }
     <button
       mat-flat-button
       type="submit"
