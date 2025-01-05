@@ -1,6 +1,6 @@
 <div class="flex justify-center">
   <div class="w-full max-w-lg px-4 my-5">
-    <h1 class="mb-3 text-xl font-bold text-center">Create a Department</h1>
+    <h1 class="mb-3 text-2xl font-bold text-center">Create a Department</h1>
     <form [formGroup]="departmentForm" (ngSubmit)="onSubmit()" class="space-y-4">
       <app-text-input [formControl]="departmentForm.controls['name']" [label]="'Department Name'"></app-text-input>
       <app-text-input [formControl]="departmentForm.controls['city']" [label]="'City Name'"></app-text-input>
