@@ -1,119 +1,121 @@
 <div class="flex justify-center">
   <div class="w-full max-w-lg px-4 my-5">
     <h2 class="mb-3 text-xl font-bold text-center">Update Employee</h2>
-  <form [formGroup]="updateEmployeeForm" (ngSubmit)="onSubmit()">
-    <div class="mb-4">
-      <label for="name" class="block text-sm font-medium mb-1">Employee Name</label>
-      <input type="text" id="name"
-             class="peer block w-full rounded border border-gray-300 px-3 py-2 text-gray-700 focus:outline-none focus:ring focus:ring-blue-300"
-             formControlName="name"
-             placeholder="Enter employee name"
-      />
-      @if (updateEmployeeForm.get('name')?.invalid &&
-      updateEmployeeForm.get('name')?.touched) {
-        <div class="text-red-600 text-sm mt-1">
-          Employee name is required.
-        </div>
-      }
-    </div>
+    <form [formGroup]="updateEmployeeForm" (ngSubmit)="onSubmit()">
+      <div class="mb-4">
+        <label for="name" class="block text-sm font-medium mb-1">Employee Name</label>
+        <input type="text" id="name"
+               class="peer block w-full rounded border border-gray-300 px-3 py-2 text-gray-700 focus:outline-none focus:ring focus:ring-blue-300"
+               formControlName="name"
+               placeholder="Enter employee name"
+        />
+        @if (updateEmployeeForm.get('name')?.invalid &&
+        updateEmployeeForm.get('name')?.touched) {
+          <div class="text-red-600 text-sm mt-1">
+            Employee name is required.
+          </div>
+        }
+      </div>
 
-    <div class="mb-4">
-      <label for="surname" class="block text-sm font-medium mb-1">Surname</label>
-      <input type="text" id="surname"
-             class="peer block w-full rounded border border-gray-300 px-3 py-2 text-gray-700 focus:outline-none focus:ring focus:ring-blue-300"
-             formControlName="surname"
-             placeholder="Enter employee surname"
-      />
-      @if (updateEmployeeForm.get('surname')?.invalid &&
-      updateEmployeeForm.get('surname')?.touched) {
-        <div class="text-red-600 text-sm mt-1">
-          Employee surname is required.
-        </div>
-      }
-    </div>
+      <div class="mb-4">
+        <label for="surname" class="block text-sm font-medium mb-1">Surname</label>
+        <input type="text" id="surname"
+               class="peer block w-full rounded border border-gray-300 px-3 py-2 text-gray-700 focus:outline-none focus:ring focus:ring-blue-300"
+               formControlName="surname"
+               placeholder="Enter employee surname"
+        />
+        @if (updateEmployeeForm.get('surname')?.invalid &&
+        updateEmployeeForm.get('surname')?.touched) {
+          <div class="text-red-600 text-sm mt-1">
+            Employee surname is required.
+          </div>
+        }
+      </div>
 
-    <div class="mb-4">
-      <label for="role" class="block text-sm font-medium mb-1">Role</label>
-      <input type="text" id="role"
-             class="peer block w-full rounded border border-gray-300 px-3 py-2 text-gray-700 focus:outline-none focus:ring focus:ring-blue-300"
-             formControlName="role"
-             placeholder="Enter employee role"
-      />
-      @if (updateEmployeeForm.get('role')?.invalid &&
-      updateEmployeeForm.get('role')?.touched) {
-        <div class="text-red-600 text-sm mt-1">
-          Employee role is required.
-        </div>
-      }
-    </div>
+      <div class="mb-4">
+        <label for="role" class="block text-sm font-medium mb-1">Role</label>
+        <input type="text" id="role"
+               class="peer block w-full rounded border border-gray-300 px-3 py-2 text-gray-700 focus:outline-none focus:ring focus:ring-blue-300"
+               formControlName="role"
+               placeholder="Enter employee role"
+        />
+        @if (updateEmployeeForm.get('role')?.invalid &&
+        updateEmployeeForm.get('role')?.touched) {
+          <div class="text-red-600 text-sm mt-1">
+            Employee role is required.
+          </div>
+        }
+      </div>
 
-    <div class="mb-4">
-      <label for="email" class="block text-sm font-medium mb-1">Email</label>
-      <input type="email" id="email"
-             class="peer block w-full rounded border border-gray-300 px-3 py-2 text-gray-700 focus:outline-none focus:ring focus:ring-blue-300"
-             formControlName="email"
-             placeholder="Enter employee email"
-      />
-      @if (updateEmployeeForm.get('email')?.invalid &&
-      updateEmployeeForm.get('email')?.touched) {
-        <div class="text-red-600 text-sm mt-1">
-          Employee email is required.
-        </div>
-      }
-    </div>
+      <div class="mb-4">
+        <label for="email" class="block text-sm font-medium mb-1">Email</label>
+        <input type="email" id="email"
+               class="peer block w-full rounded border border-gray-300 px-3 py-2 text-gray-700 focus:outline-none focus:ring focus:ring-blue-300"
+               formControlName="email"
+               placeholder="Enter employee email"
+        />
+        @if (updateEmployeeForm.get('email')?.invalid &&
+        updateEmployeeForm.get('email')?.touched) {
+          <div class="text-red-600 text-sm mt-1">
+            Employee email is required.
+          </div>
+        }
+      </div>
 
-    <div class="mb-4">
-      <label for="salary" class="block text-sm font-medium mb-1">Salary</label>
-      <input type="number" id="salary"
-             class="peer block w-full rounded border border-gray-300 px-3 py-2 text-gray-700 focus:outline-none focus:ring focus:ring-blue-300"
-             formControlName="salary"
-             placeholder="Enter employee salary"
-      />
-      @if (updateEmployeeForm.get('salary')?.invalid &&
-      updateEmployeeForm.get('salary')?.touched) {
-        <div class="text-red-600 text-sm mt-1">
-          Employee salary is required.
-        </div>
-      }
-    </div>
+      <div class="mb-4">
+        <label for="salary" class="block text-sm font-medium mb-1">Salary</label>
+        <input type="number" id="salary"
+               class="peer block w-full rounded border border-gray-300 px-3 py-2 text-gray-700 focus:outline-none focus:ring focus:ring-blue-300"
+               formControlName="salary"
+               placeholder="Enter employee salary"
+        />
+        @if (updateEmployeeForm.get('salary')?.invalid &&
+        updateEmployeeForm.get('salary')?.touched) {
+          <div class="text-red-600 text-sm mt-1">
+            Employee salary is required.
+          </div>
+        }
+      </div>
 
-    <div class="mb-4">
-      <label for="pictureUrl" class="block text-sm font-medium mb-1">PictureUrl</label>
-      <input type="text" id="pictureUrl"
-             class="peer block w-full rounded border border-gray-300 px-3 py-2 text-gray-700 focus:outline-none focus:ring focus:ring-blue-300"
-             formControlName="pictureUrl"
-             placeholder="Enter employee pictureUrl"
-      />
-      @if (updateEmployeeForm.get('pictureUrl')?.invalid &&
-      updateEmployeeForm.get('pictureUrl')?.touched) {
-        <div class="text-red-600 text-sm mt-1">
-          Employee pictureUrl is required.
-        </div>
-      }
-    </div>
+      <div class="mb-4">
+        <label for="pictureUrl" class="block text-sm font-medium mb-1">PictureUrl</label>
+        <input type="text" id="pictureUrl"
+               class="peer block w-full rounded border border-gray-300 px-3 py-2 text-gray-700 focus:outline-none focus:ring focus:ring-blue-300"
+               formControlName="pictureUrl"
+               placeholder="Enter employee pictureUrl"
+        />
+        @if (updateEmployeeForm.get('pictureUrl')?.invalid &&
+        updateEmployeeForm.get('pictureUrl')?.touched) {
+          <div class="text-red-600 text-sm mt-1">
+            Employee pictureUrl is required.
+          </div>
+        }
+      </div>
 
-    <div class="mb-4">
-      <label for="departmentName" class="block text-sm font-medium mb-1">Department</label>
-      <select id="departmentName"
-              class="peer block w-full rounded border border-gray-300 px-3 py-2 text-gray-700 focus:outline-none focus:ring focus:ring-blue-300"
-              formControlName="departmentName">
-        <option *ngFor="let department of department" [value]="department.id">
-          {{ department.name }}
-        </option>
-      </select>
-      @if (updateEmployeeForm.get('departmentName')?.invalid &&
-      updateEmployeeForm.get('departmentName')?.touched) {
-        <div class="text-red-600 text-sm mt-1">
-          Employee departmentName is required.
-        </div>
-      }
-    </div>
+      <div class="mb-4">
+        <label for="departmentId" class="block text-sm font-medium mb-1">Department</label>
+        <select id="departmentId"
+                class="peer block w-full rounded border border-gray-300 px-3 py-2 text-gray-700 focus:outline-none focus:ring focus:ring-blue-300"
+                formControlName="departmentId">
+          @for (dept of department; track dept.id) {
+            <option [value]="dept.id">
+              {{ dept.name }}
+            </option>
+          }
+        </select>
+        @if (updateEmployeeForm.get('departmentName')?.invalid &&
+        updateEmployeeForm.get('departmentName')?.touched) {
+          <div class="text-red-600 text-sm mt-1">
+            Employee departmentName is required.
+          </div>
+        }
+      </div>
 
-    <button type="submit"
-            class="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 disabled:opacity-50"
-            [disabled]="updateEmployeeForm.invalid">
-      Update Employee
-    </button>
-  </form>
-</div>
+      <button type="submit"
+              class="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 disabled:opacity-50"
+              [disabled]="updateEmployeeForm.invalid">
+        Update Employee
+      </button>
+    </form>
+  </div>
 </div>

@@ -7,4 +7,5 @@
   salary: number;
   pictureUrl: string;
   departmentName: string;
+  departmentId: number;
 }
