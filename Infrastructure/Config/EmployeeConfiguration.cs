@@ -10,9 +10,9 @@ public class EmployeeConfiguration : IEntityTypeConfiguration<Employee>
     {
         builder.Property(x => x.Salary).HasColumnType("decimal(18,2)");
         builder.Property(x => x.Name).IsRequired();
-        
-        builder.HasOne(x => x.Department) 
-            .WithMany()  
+
+        builder.HasOne(x => x.Department)
+            .WithMany()
             .HasForeignKey(x => x.DepartmentId)
             .OnDelete(DeleteBehavior.Cascade);
     }

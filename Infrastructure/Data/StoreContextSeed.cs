@@ -1,5 +1,4 @@
 ﻿using System.Reflection;
-using System.Text.Json;
 using Core.Entities;
 using Microsoft.AspNetCore.Identity;
 
@@ -22,6 +21,5 @@ public class StoreContextSeed
         }
 
         var path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-        
     }
 }

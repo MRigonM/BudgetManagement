@@ -9,6 +9,5 @@ public class Employee : BaseEntity
     public required decimal Salary { get; set; }
     public required String PictureUrl { get; set; }
     public int DepartmentId { get; set; }
-
     public Department Department { get; set; }
 }

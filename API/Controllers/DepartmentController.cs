@@ -18,7 +18,7 @@ public class DepartmentController : BaseApiController
         _departmentRepo = departmentRepo;
         _mapper = mapper;
     }
-    
+
     [HttpGet]
     public async Task<ActionResult<IReadOnlyList<DepartmentToReturnDto>>> GetDepartments()
     {
@@ -33,7 +33,7 @@ public class DepartmentController : BaseApiController
     public async Task<ActionResult<DepartmentToReturnDto>> GetDepartment(int id)
     {
         var department = await _departmentRepo.GetByIdAsync(id);
-        
+
         if (department == null)
         {
             return NotFound(new ApiResponse(404));
@@ -61,7 +61,7 @@ public class DepartmentController : BaseApiController
         var department = await _departmentRepo.GetByIdAsync(id);
 
         _mapper.Map(departmentDto, department);
-        
+
         _departmentRepo.Update(department);
 
         var result = await _departmentRepo.SaveAllAsync();
@@ -78,7 +78,7 @@ public class DepartmentController : BaseApiController
         {
             return NotFound(new ApiResponse(404));
         }
-        
+
         _departmentRepo.Delete(department);
         var result = await _departmentRepo.SaveAllAsync();
         if (result <= 0)
@@ -86,5 +86,4 @@ public class DepartmentController : BaseApiController
 
         return Ok(new { message = "Department u fshi me sukses!" });
     }
-    
 }

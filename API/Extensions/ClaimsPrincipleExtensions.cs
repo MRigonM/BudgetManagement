@@ -3,6 +3,7 @@ using System.Security.Claims;
 using Core.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+
 namespace API.Extensions;
 
 public static class ClaimsPrincipleExtensions
@@ -15,6 +16,7 @@ public static class ClaimsPrincipleExtensions
         if (userToReturn == null) throw new AuthenticationException("User not found");
         return userToReturn;
     }
+
     public static async Task<AppUser> GetUserByEmailWithAddress(this UserManager<AppUser> userManager,
         ClaimsPrincipal user)
     {
@@ -24,6 +26,7 @@ public static class ClaimsPrincipleExtensions
         if (userToReturn == null) throw new AuthenticationException("User not found");
         return userToReturn;
     }
+
     public static string GetEmail(this ClaimsPrincipal user)
     {
         var email = user.FindFirstValue(ClaimTypes.Email)

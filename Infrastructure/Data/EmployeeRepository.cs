@@ -27,17 +27,16 @@ public class EmployeeRepository : IEmployeeRepository
             .FirstOrDefaultAsync(l => l.Id == id);
     }
 
-    public async Task<IReadOnlyList<Employee>> GetAllWithEmployeesAsync(List<string>? departments, string? sort, string? search)
+    public async Task<IReadOnlyList<Employee>> GetAllWithEmployeesAsync(List<string>? departments, string? sort,
+        string? search)
     {
         var query = _context.Employees.AsQueryable();
 
-        // Filter by departments
         if (departments != null && departments.Any())
         {
             query = query.Where(x => departments.Contains(x.Department.Name));
         }
 
-        // Filter by search
         if (!string.IsNullOrWhiteSpace(search))
         {
             var normalizedSearch = search.ToLower();
@@ -59,7 +58,6 @@ public class EmployeeRepository : IEmployeeRepository
             }
         }
 
-        // Apply sorting
         query = sort switch
         {
             "salaryAsc" => query.OrderBy(x => x.Salary),
@@ -70,7 +68,6 @@ public class EmployeeRepository : IEmployeeRepository
         return await query.Include(x => x.Department).ToListAsync();
     }
 
-    
     public void Add(Employee employee)
     {
         _context.Employees.Add(employee);

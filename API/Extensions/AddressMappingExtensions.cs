@@ -1,5 +1,6 @@
 ﻿using API.DTOs;
 using Core.Entities;
+
 namespace API.Extensions;
 
 public static class AddressMappingExtensions
@@ -15,6 +16,7 @@ public static class AddressMappingExtensions
             PostalCode = address.PostalCode,
         };
     }
+
     public static Address ToEntity(this AddressDto addressDto)
     {
         if (addressDto == null) throw new ArgumentNullException(nameof(addressDto));
@@ -26,6 +28,7 @@ public static class AddressMappingExtensions
             PostalCode = addressDto.PostalCode,
         };
     }
+
     public static void UpdateFromDto(this Address address, AddressDto addressDto)
     {
         if (addressDto == null) throw new ArgumentNullException(nameof(addressDto));
