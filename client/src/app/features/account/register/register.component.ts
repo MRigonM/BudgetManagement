@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AccountService } from '../../../core/services/account.service';
-import { Router } from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
 import { SnackbarService } from '../../../core/services/snackbar.service';
 import { MatButton } from '@angular/material/button';
 import { MatCard } from '@angular/material/card';
@@ -19,6 +19,7 @@ import { MatInput } from '@angular/material/input';
     MatLabel,
     MatCard,
     MatError,
+    RouterLink,
   ],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss',
