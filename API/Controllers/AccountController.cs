@@ -59,7 +59,7 @@ public class AccountController(SignInManager<AppUser> signInManager) : BaseApiCo
             Address = user.Address?.ToDto()
         });
     }
-    [HttpGet("auth-status")]
+    [HttpGet("auth-state")]
     public ActionResult GetAuthState()
     {
         return Ok(new { IsAuthenticated = User.Identity?.IsAuthenticated ?? false });
