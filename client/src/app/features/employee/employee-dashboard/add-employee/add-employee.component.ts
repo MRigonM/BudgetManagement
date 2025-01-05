@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
+import {Router, ActivatedRoute} from '@angular/router';
 import {EmployeeService} from '../../../../core/services/employee.service';
 import {DepartmentService} from '../../../../core/services/department.service';
 import {TextInputComponent} from '../../../../shared/components/text-input/text-input.component';
@@ -53,28 +53,27 @@ export class AddEmployeeComponent implements OnInit {
   }
 
   onSubmit(): void {
-  if (this.employeeForm.invalid) return;
+    if (this.employeeForm.invalid) return;
+    const formValue = this.employeeForm.value;
 
-  const formValue = this.employeeForm.value;
+    const payload = {
+      name: formValue.name,
+      surname: formValue.surname,
+      role: formValue.role,
+      email: formValue.email,
+      salary: formValue.salary,
+      pictureUrl: formValue.pictureUrl,
+      departmentId: formValue.departmentName,
+      departmentName: this.departments.find(d => d.id === parseInt(<string>formValue.departmentName))?.name
+    };
 
-  const payload = {
-    name: formValue.name,
-    surname: formValue.surname,
-    role: formValue.role,
-    email: formValue.email,
-    salary:formValue.salary,
-    pictureUrl: formValue.pictureUrl,
-    departmentId: formValue.departmentName,
-    departmentName: this.departments.find(d => d.id === parseInt(<string>formValue.departmentName))?.name
-  };
-
-  this.employeeService.addEmployee(payload).subscribe({
-    next: () => {
-      this.router.navigateByUrl(this.returnUrl);
-    },
-    error: (err) => {
-      console.error('Failed to create employee:', err);
-    }
-  });
-}
+    this.employeeService.addEmployee(payload).subscribe({
+      next: () => {
+        this.router.navigateByUrl(this.returnUrl);
+      },
+      error: (err) => {
+        console.error('Failed to create employee:', err);
+      }
+    });
+  }
 }

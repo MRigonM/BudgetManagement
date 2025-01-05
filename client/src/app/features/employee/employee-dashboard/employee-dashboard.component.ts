@@ -24,7 +24,6 @@ import {MatIcon} from '@angular/material/icon';
   styleUrl: './employee-dashboard.component.scss'
 })
 export class EmployeeDashboardComponent implements OnInit {
-
   employees: Employee[] = [];
   returnUrl: string;
   employeeParams = new EmployeeParams();
@@ -50,13 +49,13 @@ export class EmployeeDashboardComponent implements OnInit {
 
   deleteEmployee(id: any) {
     this.employeeService.deleteEmployee(id).subscribe({
-    next: (response) => {
-      this.router.navigate([this.router.url]).then(() => {
-        window.location.reload();
-      });
-    },
-    error: (error) => console.error(error)
-  });
+      next: (response) => {
+        this.router.navigate([this.router.url]).then(() => {
+          window.location.reload();
+        });
+      },
+      error: (error) => console.error(error)
+    });
   }
 
   onSearchChange() {

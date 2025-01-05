@@ -21,7 +21,7 @@ import {EmployeeParams} from '../../shared/models/employeeParams';
   templateUrl: './employee.component.html',
   styleUrl: './employee.component.scss'
 })
-export class EmployeeComponent{
+export class EmployeeComponent {
   private employeeService = inject(EmployeeService);
   private dialogService = inject(MatDialog)
   employees: Employee[] = [];
@@ -43,7 +43,7 @@ export class EmployeeComponent{
   getEmployees() {
     this.employeeService.getEmployees(this.employeeParams).subscribe({
       next: response => this.employees = response,
-      error: error =>console.log(error)
+      error: error => console.log(error)
     })
   }
 
@@ -56,11 +56,11 @@ export class EmployeeComponent{
     });
     dialogRef.afterClosed().subscribe({
       next: result => {
-        if(result) {
+        if (result) {
           this.employeeParams.departments = result.selectedDepartments;
           this.employeeService.getEmployees(this.employeeParams).subscribe({
             next: response => this.employees = response,
-            error: error =>console.log(error)
+            error: error => console.log(error)
           })
         }
       }

@@ -1,6 +1,5 @@
 <div class="flex justify-end items-center gap-4 mb-2">
   <form
-    #searchForm="ngForm"
     (ngSubmit)="onSearchChange()"
     class="flex items-center gap-2 w-full max-w-md">
     <input
@@ -33,16 +32,16 @@
     <table class="table-auto w-full border-collapse border border-gray-300">
       @if (employees && employees.length > 0) {
         <thead>
-          <tr class="bg-gray-100">
-            <th class="border border-gray-300 px-4 py-2 text-left">Id</th>
-            <th class="border border-gray-300 px-4 py-2 text-left">Name</th>
-            <th class="border border-gray-300 px-4 py-2 text-left">Surname</th>
-            <th class="border border-gray-300 px-4 py-2 text-left">Role</th>
-            <th class="border border-gray-300 px-4 py-2 text-left">Email</th>
-            <th class="border border-gray-300 px-4 py-2 text-left">Salary</th>
-            <th class="border border-gray-300 px-4 py-2 text-left">Department</th>
-            <th class="border border-gray-300 px-4 py-2 text-left" colspan="2">Actions</th>
-          </tr>
+        <tr class="bg-gray-100">
+          <th class="border border-gray-300 px-4 py-2 text-left">Id</th>
+          <th class="border border-gray-300 px-4 py-2 text-left">Name</th>
+          <th class="border border-gray-300 px-4 py-2 text-left">Surname</th>
+          <th class="border border-gray-300 px-4 py-2 text-left">Role</th>
+          <th class="border border-gray-300 px-4 py-2 text-left">Email</th>
+          <th class="border border-gray-300 px-4 py-2 text-left">Salary</th>
+          <th class="border border-gray-300 px-4 py-2 text-left">Department</th>
+          <th class="border border-gray-300 px-4 py-2 text-left" colspan="2">Actions</th>
+        </tr>
         </thead>
         <tbody>
           @for (employee of employees; track employee.id) {

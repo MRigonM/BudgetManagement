@@ -1,7 +1,6 @@
 import {inject, Injectable} from '@angular/core';
 import {environment} from '../../environments/environment';
 import {HttpClient, HttpParams} from '@angular/common/http';
-import {Department} from '../../shared/models/department';
 import {Employee} from '../../shared/models/employee';
 import {EmployeeParams} from '../../shared/models/employeeParams';
 
@@ -18,7 +17,7 @@ export class EmployeeService {
     return this.http.get<Employee>(this.baseUrl + 'employee/' + id);
   }
 
-  addEmployee(values : any) {
+  addEmployee(values: any) {
     return this.http.post<Employee>(this.baseUrl + 'employee', values);
   }
 

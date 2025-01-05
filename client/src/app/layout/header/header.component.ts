@@ -1,5 +1,4 @@
 import {Component, inject} from '@angular/core';
-import {MatBadge} from '@angular/material/badge';
 import {MatButton} from '@angular/material/button';
 import {Router, RouterLink, RouterLinkActive} from '@angular/router';
 import {AccountService} from '../../core/services/account.service';

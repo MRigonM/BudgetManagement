@@ -10,7 +10,7 @@
         <mat-error>First name is required.</mat-error>
       }
       @if (registerForm.get('firstName')?.errors?.['minlength']) {
-        <mat-error>First Name must be at least {{ nameMinLength }} characters long.</mat-error>
+        <mat-error>First Name must be at least {{ this.accountParams.nameMinLength }} characters long.</mat-error>
       }
     </mat-form-field>
     <mat-form-field appearance="fill" class="w-full mb-4">
@@ -20,7 +20,7 @@
         <mat-error>Last name is required.</mat-error>
       }
       @if (registerForm.get('lastName')?.errors?.['minlength']) {
-        <mat-error>Last Name must be at least {{ nameMinLength }} characters long.</mat-error>
+        <mat-error>Last Name must be at least {{ this.accountParams.nameMinLength }} characters long.</mat-error>
       }
     </mat-form-field>
     <mat-form-field appearance="fill" class="w-full mb-4">
@@ -40,7 +40,7 @@
         <mat-error>Password is required.</mat-error>
       }
       @if (registerForm.get('password')?.errors?.['minlength']) {
-        <mat-error>Password must be at least {{ passwordMinLength }} characters long.</mat-error>
+        <mat-error>Password must be at least {{ this.accountParams.passwordMinLength }} characters long.</mat-error>
       }
       @if (!(registerForm.get('password')?.errors?.['minlength']) &&
       registerForm.get('password')?.errors?.['pattern']) {
@@ -49,9 +49,9 @@
         </mat-error>
       }
     </mat-form-field>
-    @if (validationErrors && validationErrors.length > 0) {
+    @if (this.accountParams.validationErrors && this.accountParams.validationErrors.length > 0) {
       <div class="mb-2">
-        @for (error of validationErrors; track $index) {
+        @for (error of this.accountParams.validationErrors; track $index) {
           <mat-error>{{ error }}</mat-error>
         }
       </div>

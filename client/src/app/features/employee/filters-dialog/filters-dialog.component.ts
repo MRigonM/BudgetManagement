@@ -1,4 +1,4 @@
-import {Component, Inject , inject} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {EmployeeService} from '../../../core/services/employee.service';
 import {MatDivider} from '@angular/material/divider';
 import {MatListOption, MatSelectionList} from '@angular/material/list';
@@ -26,7 +26,7 @@ export class FiltersDialogComponent {
 
   selectedDepartments: string[] = this.data.selectedDepartments;
 
-  applyFilters(){
+  applyFilters() {
     this.dialogRef.close({
       selectedDepartments: this.selectedDepartments
     });

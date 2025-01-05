@@ -6,7 +6,7 @@
       <h4 class="font-semibold text-xl text-primary">Departments</h4>
       <mat-selection-list [(ngModel)]="selectedDepartments" [multiple]="true">
         @for (department of depo; track $index) {
-          <mat-list-option [value]="department">{{department}}</mat-list-option>
+          <mat-list-option [value]="department">{{ department }}</mat-list-option>
         }
       </mat-selection-list>
     </div>

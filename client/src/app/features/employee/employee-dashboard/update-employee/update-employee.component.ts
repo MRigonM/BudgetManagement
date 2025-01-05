@@ -86,7 +86,6 @@ export class UpdateEmployeeComponent implements OnInit {
       departmentId: Number(this.updateEmployeeForm.get('departmentId')?.value),
       departmentName: this.department.find(d => d.id === Number(this.updateEmployeeForm.get('departmentId')?.value))?.name || ''
     };
-
     console.log('Sending to server:', updatedEmployee);
 
     this.employeeService.updateEmployee(updatedEmployee).subscribe({

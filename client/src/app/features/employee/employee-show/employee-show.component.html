@@ -4,7 +4,7 @@
       src="{{employee.pictureUrl}}"
       alt="image of {{employee.name}}"
       routerLink="/employee/{{employee.id}}"
-      >
+    >
     <mat-card-content class="mt-2">
       <h2 class="text-sm font-semibold uppercase">{{ employee.name }} {{ employee.surname }}</h2>
       <p class="font-light">Department : {{ employee.departmentName }}</p>
@@ -15,7 +15,7 @@
         mat-stroked-button
         class="w-full"
         [routerLink]="['/employees', 'update', employee.id]"
-        >
+      >
         <mat-icon>update</mat-icon>
         Update
       </button>

@@ -33,10 +33,10 @@ export class EmployeeDetailsComponent implements OnInit {
 
   loadEmployee() {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
-    if(!id) return;
+    if (!id) return;
     this.employeeService.getEmployee(+id).subscribe({
-      next : employee => this.employee = employee,
-      error : error => console.log(error)
+      next: employee => this.employee = employee,
+      error: error => console.log(error)
     })
   }
 

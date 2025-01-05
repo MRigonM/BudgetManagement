@@ -16,7 +16,6 @@
           </div>
         }
       </div>
-
       <div class="mb-4">
         <label for="surname" class="block text-sm font-medium mb-1">Surname</label>
         <input type="text" id="surname"
@@ -31,7 +30,6 @@
           </div>
         }
       </div>
-
       <div class="mb-4">
         <label for="role" class="block text-sm font-medium mb-1">Role</label>
         <input type="text" id="role"
@@ -46,7 +44,6 @@
           </div>
         }
       </div>
-
       <div class="mb-4">
         <label for="email" class="block text-sm font-medium mb-1">Email</label>
         <input type="email" id="email"
@@ -61,7 +58,6 @@
           </div>
         }
       </div>
-
       <div class="mb-4">
         <label for="salary" class="block text-sm font-medium mb-1">Salary</label>
         <input type="number" id="salary"
@@ -76,7 +72,6 @@
           </div>
         }
       </div>
-
       <div class="mb-4">
         <label for="pictureUrl" class="block text-sm font-medium mb-1">PictureUrl</label>
         <input type="text" id="pictureUrl"
@@ -91,7 +86,6 @@
           </div>
         }
       </div>
-
       <div class="mb-4">
         <label for="departmentId" class="block text-sm font-medium mb-1">Department</label>
         <select id="departmentId"
@@ -103,14 +97,7 @@
             </option>
           }
         </select>
-        @if (updateEmployeeForm.get('departmentName')?.invalid &&
-        updateEmployeeForm.get('departmentName')?.touched) {
-          <div class="text-red-600 text-sm mt-1">
-            Employee departmentName is required.
-          </div>
-        }
       </div>
-
       <button type="submit"
               class="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 disabled:opacity-50"
               [disabled]="updateEmployeeForm.invalid">

@@ -3,7 +3,6 @@ import {Employee} from '../../../shared/models/employee';
 import {MatCard, MatCardActions, MatCardContent} from '@angular/material/card';
 import {MatButton} from '@angular/material/button';
 import {MatIcon} from '@angular/material/icon';
-import {CurrencyPipe} from '@angular/common';
 import {RouterLink} from '@angular/router';
 
 @Component({

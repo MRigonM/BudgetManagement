@@ -6,15 +6,23 @@
     class="peer block w-full rounded border border-gray-300 px-3 py-2 text-gray-700 focus:outline-none focus:ring focus:ring-blue-300"
   >
   <div class="text-red-500 text-sm mt-1">
-    @if (isControlTouched && control.errors?.['required']) {Please enter your {{label}}}
+    @if (isControlTouched && control.errors?.['required']) {
+      Please enter your {{ label }}
+    }
   </div>
   <div class="text-red-500 text-sm mt-1">
-    @if (isControlTouched && control.errors?.['email']) {Invalid email address}
+    @if (isControlTouched && control.errors?.['email']) {
+      Invalid email address
+    }
   </div>
   <div class="text-red-500 text-sm mt-1">
-    @if (isControlTouched && control.errors?.['pattern']) {Password not complex enough}
+    @if (isControlTouched && control.errors?.['pattern']) {
+      Password not complex enough
+    }
   </div>
   <div class="text-red-500 text-sm mt-1">
-    @if (isControlTouched && control.errors?.['emailExists']) {Email address is already taken}
+    @if (isControlTouched && control.errors?.['emailExists']) {
+      Email address is already taken
+    }
   </div>
 </div>
